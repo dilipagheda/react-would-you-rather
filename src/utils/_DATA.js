@@ -200,3 +200,9 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
 		}, 500);
 	});
 }
+
+///
+export const Users = users;
+export const Questions = questions;
+
+////
