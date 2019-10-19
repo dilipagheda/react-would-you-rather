@@ -1,42 +1,38 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { OuterDiv, HeaderDiv, DetailDiv } from '../shared/Shared';
 
 class Question extends Component {
 	render() {
 		return (
-			<div
-				style={{
-					width: '50%',
-					margin: '10px auto',
-					backgroundColor: 'lightgrey',
-					borderRadius: '10px'
-				}}
-			>
-				<div
-					style={{
-						fontWeight: 'bold',
-						fontSize: '20px',
-						backgroundColor: 'grey',
-						padding: '10px',
-						color: 'white',
-						borderRadius: '10px 10px 0 0'
-					}}
-				>
-					{this.props.authorName} asks:
-				</div>
-				<div style={{ display: 'flex', padding: '10px' }}>
-					<img src={this.props.avatarURL} style={{ width: '100px', height: '100px', borderRadius: '50%' }} />
-					<div style={{ marginLeft: '10px' }}>
+			<OuterDiv>
+				<HeaderDiv>{this.props.authorName} asks:</HeaderDiv>
+				<DetailDiv>
+					<img
+						src={this.props.avatarURL}
+						style={{ width: '100px', height: '100px', borderRadius: '50%', alignSelf: 'center' }}
+					/>
+					<div
+						style={{
+							marginLeft: '10px',
+							flexGrow: '1',
+							backgroundColor: 'white',
+							padding: '10px',
+							borderRadius: '5px'
+						}}
+					>
 						<div style={{ fontWeight: 'bold', fontSize: '20px' }}>Would you rather</div>
 						<div style={{ margin: '10px 0' }}>{this.props.optionOne}?</div>
 						<div>OR</div>
 						<div style={{ margin: '10px 0' }}>{this.props.optionTwo}?</div>
 
-						<Button>View Poll</Button>
+						<Button style={{ width: '100%', backgroundColor: '#5a5560', color: 'white', border: 'none' }}>
+							View Poll
+						</Button>
 					</div>
-				</div>
-			</div>
+				</DetailDiv>
+			</OuterDiv>
 		);
 	}
 }
