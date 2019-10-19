@@ -1,8 +1,26 @@
 import React, { Component } from 'react';
-import { ButtonGroup, Button, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import styled from 'styled-components';
+import AnsweredQuestions from './AnsweredQuestions';
+import UnansweredQuestions from './UnAnsweredQuestions';
 
 const ANSWERED_QUESTIONS = 'Answered Questions';
 const UNANSWERED_QUESTIONS = 'Unanswered Questions';
+const TEMP_USERID = 'johndoe';
+
+const HomeViewButton = styled.button`
+	margin-right: 10px;
+	background-color: ${(props) =>
+
+			props.active === true ? 'grey' :
+			'white'};
+	color: ${(props) =>
+
+			props.active === true ? 'white' :
+			'grey'};
+	padding: 10px;
+	border-radius: 5px;
+`;
 
 class HomeView extends Component {
 	state = { currentSelection: UNANSWERED_QUESTIONS };
@@ -19,14 +37,25 @@ class HomeView extends Component {
 					className="d-flex justify-content-center"
 					style={{ width: '70%', margin: 'auto', padding: '10px' }}
 				>
-					<Button
-						style={{ marginRight: '10px', backgroundColor: 'white', color: 'black' }}
+					<HomeViewButton
+						active={ANSWERED_QUESTIONS === this.state.currentSelection}
+						onClick={this.handleClick}
+					>
+						Answered Questions
+					</HomeViewButton>
+					<HomeViewButton
+						active={UNANSWERED_QUESTIONS === this.state.currentSelection}
 						onClick={this.handleClick}
 					>
 						Unanswered Questions
-					</Button>
-					<Button onClick={this.handleClick}>Answered Questions</Button>
+					</HomeViewButton>
 				</div>
+				{
+					this.state.currentSelection === ANSWERED_QUESTIONS ? <AnsweredQuestions userId={TEMP_USERID} /> :
+					this.state.currentSelection === UNANSWERED_QUESTIONS ? <UnansweredQuestions
+						userId={TEMP_USERID}
+					/> :
+					null}
 			</Container>
 		);
 	}
