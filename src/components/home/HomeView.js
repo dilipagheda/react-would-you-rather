@@ -6,13 +6,13 @@ import UnansweredQuestions from './UnAnsweredQuestions';
 
 const ANSWERED_QUESTIONS = 'Answered Questions';
 const UNANSWERED_QUESTIONS = 'Unanswered Questions';
-const TEMP_USERID = 'johndoe';
+const TEMP_USERID = 'tylermcginnis';
 
 const HomeViewButton = styled.button`
 	margin-right: 10px;
 	background-color: ${(props) =>
 
-			props.active === true ? 'grey' :
+			props.active === true ? '#5a5560' :
 			'white'};
 	color: ${(props) =>
 
