@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import QuestionList from './QuestionList';
+import { connect } from 'react-redux';
 
 class AnsweredQuestions extends Component {
 	render() {
@@ -8,7 +9,7 @@ class AnsweredQuestions extends Component {
 }
 
 function mapStateToProps({ users, questions }, { userId }) {
-	const user = users[id];
+	const user = users[userId];
 	const answers = user.answers;
 
 	return {
