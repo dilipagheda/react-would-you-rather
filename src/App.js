@@ -4,6 +4,11 @@ import { Container } from 'react-bootstrap';
 
 import AppMenu from './components/AppMenu';
 import HomeView from './components/home/HomeView';
+import PollResultView from './components/poll/PollResultView';
+import LeaderBoardView from './components/leaderboard/LeaderBoardView';
+import PollMain from './components/poll/PollMain';
+import CreateQuestion from './components/question/CreateQuestion';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 function App() {
 	return (
@@ -11,11 +16,30 @@ function App() {
 			<AppMenu />
 			<Container>
 				<div className="d-flex flex-row-reverse">
-					<span style={{ padding: '0 30px', backgroundColor: 'grey', color: 'white', borderRadius: '30px' }}>
+					<span
+						style={{
+							padding: '0 30px',
+							backgroundColor: '#FCCD04',
+							color: '#A64AC9',
+							borderRadius: '0 0 10px 10px'
+						}}
+					>
 						Hello user!
 					</span>
 				</div>
-				<HomeView />
+				{/* <HomeView /> */}
+				{/* <PollResultView /> */}
+				{/* <PollForm /> */}
+				{/* <LeaderBoardView /> */}
+				{/* <CreateQuestion /> */}
+				<Router>
+					<Switch>
+						<Route exact path="/" component={HomeView} />
+						<Route path="/add" component={CreateQuestion} />
+						<Route path="/leaderboard" component={LeaderBoardView} />
+						<Route path="/questions/:question_id" component={PollMain} />
+					</Switch>
+				</Router>
 			</Container>
 		</div>
 	);
