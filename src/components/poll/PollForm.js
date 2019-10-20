@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { OuterDiv, HeaderDiv, DetailDiv, AppButton } from '../shared/Shared';
+import { connect } from 'react-redux';
 
 class PollForm extends Component {
 	state = {
@@ -18,7 +19,7 @@ class PollForm extends Component {
 	render() {
 		return (
 			<OuterDiv>
-				<HeaderDiv>Dilip agheda asks:</HeaderDiv>
+				<HeaderDiv>{this.props.author} asks:</HeaderDiv>
 				<DetailDiv>
 					<img
 						src="https://i.pravatar.cc/150?img=3"
@@ -33,7 +34,7 @@ class PollForm extends Component {
 									name="opt"
 									type="radio"
 									id="opt1"
-									label="have horrible short term memory"
+									label={this.props.optionOne.text}
 									value="1"
 									checked={this.state.currentSelection === '1'}
 									onChange={this.handleChange}
@@ -42,7 +43,7 @@ class PollForm extends Component {
 								<Form.Check
 									name="opt"
 									type="radio"
-									label="have horrible long term memory"
+									label={this.props.optionTwo.text}
 									id="opt2"
 									value="2"
 									checked={this.state.currentSelection === '2'}
@@ -58,4 +59,18 @@ class PollForm extends Component {
 	}
 }
 
-export default PollForm;
+function mapStateToProps({ users, questions, authedUser }, { question_id }) {
+	const optionOne = {
+		text: questions[question_id].optionOne.text
+	};
+	const optionTwo = {
+		text: questions[question_id].optionTwo.text
+	};
+	const author = users[questions[question_id].author].name;
+	return {
+		optionOne,
+		optionTwo,
+		author
+	};
+}
+export default connect(mapStateToProps)(PollForm);
