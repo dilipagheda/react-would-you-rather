@@ -9,16 +9,16 @@ class AppMenu extends Component {
 					<Navbar.Brand href="#home" style={{ color: 'white' }}>
 						Would you rather?
 					</Navbar.Brand>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+					<Navbar.Toggle aria-controls="basic-navbar-nav" style={{ backgroundColor: 'white' }} />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Nav className="mr-auto">
-							<Nav.Link href="#home" style={{ color: 'white' }}>
+							<Nav.Link href="/" style={{ color: 'white' }}>
 								Home
 							</Nav.Link>
-							<Nav.Link href="#link" style={{ color: 'white' }}>
+							<Nav.Link href="/add" style={{ color: 'white' }}>
 								New Question
 							</Nav.Link>
-							<Nav.Link href="#link" style={{ color: 'white' }}>
+							<Nav.Link href="/leaderboard" style={{ color: 'white' }}>
 								Leaderboard
 							</Nav.Link>
 						</Nav>
