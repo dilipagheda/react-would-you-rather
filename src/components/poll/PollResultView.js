@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import PollResultCard from './PollResultCard';
 import { OuterDiv, HeaderDiv, DetailDiv } from '../shared/Shared';
+import { connect } from 'react-redux';
 
 class PollResultView extends Component {
+	renderPollResultCards = () =>
+		[ this.props.optionOne, this.props.optionTwo ].map((option, index) => (
+			<PollResultCard key={index} totalVotes={this.props.totalVotes} {...option} />
+		));
+
 	render() {
 		return (
 			<OuterDiv>
-				<HeaderDiv>Asked by Dilip</HeaderDiv>
+				<HeaderDiv>{`Asked by ${this.props.currentUserName}`}</HeaderDiv>
 				<DetailDiv>
 					<img
 						src="https://i.pravatar.cc/150?img=3"
@@ -21,8 +27,7 @@ class PollResultView extends Component {
 						}}
 					>
 						<div style={{ fontWeight: 'bold', fontSize: '20px' }}>Results</div>
-						<PollResultCard />
-						<PollResultCard />
+						{this.renderPollResultCards()}
 					</div>
 				</DetailDiv>
 			</OuterDiv>
@@ -30,4 +35,24 @@ class PollResultView extends Component {
 	}
 }
 
-export default PollResultView;
+function mapStateToProps({ users, questions, authedUser }, { question_id }) {
+	const optionOne = {
+		votes: questions[question_id].optionOne.votes.length,
+		text: questions[question_id].optionOne.text,
+		userVote: questions[question_id].optionOne.votes.includes(authedUser)
+	};
+	const optionTwo = {
+		votes: questions[question_id].optionTwo.votes.length,
+		text: questions[question_id].optionTwo.text,
+		userVote: questions[question_id].optionTwo.votes.includes(authedUser)
+	};
+	const totalVotes = optionOne.votes + optionTwo.votes;
+	const currentUserName = users[authedUser].name;
+	return {
+		optionOne,
+		optionTwo,
+		totalVotes,
+		currentUserName
+	};
+}
+export default connect(mapStateToProps)(PollResultView);
