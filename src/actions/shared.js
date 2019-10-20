@@ -6,7 +6,7 @@ import { showLoader, hideLoader } from '../actions/loader';
 
 const AUTHED_ID = 'sarahedo';
 
-export function handleInitialData() {
+export function handleData() {
 	return (dispatch) => {
 		dispatch(showLoader());
 
