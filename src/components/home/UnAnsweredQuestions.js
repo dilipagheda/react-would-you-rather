@@ -10,9 +10,13 @@ class UnansweredQuestions extends Component {
 
 function mapStateToProps({ users, questions }, { userId }) {
 	const user = users[userId];
-	const answers = user.answers;
-	const answeredQuestionIds = Object.keys(answers);
-	const unansweredQuestionIds = Object.keys(questions).filter((id) => !answeredQuestionIds.includes(id));
+	const answers = user && user.answers;
+	const answeredQuestionIds =
+		answers ? Object.keys(answers) :
+		[];
+	const unansweredQuestionIds =
+		answeredQuestionIds ? Object.keys(questions).filter((id) => !answeredQuestionIds.includes(id)) :
+		[];
 
 	return {
 		unansweredQuestionIds

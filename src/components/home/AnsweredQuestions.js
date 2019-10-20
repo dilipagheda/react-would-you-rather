@@ -4,16 +4,20 @@ import { connect } from 'react-redux';
 
 class AnsweredQuestions extends Component {
 	render() {
-		return <QuestionList ids={this.props.answeredQuestionIds} />;
+		const { answeredQuestionIds } = this.props;
+
+		return <QuestionList ids={answeredQuestionIds} />;
 	}
 }
 
 function mapStateToProps({ users, questions }, { userId }) {
 	const user = users[userId];
-	const answers = user.answers;
+	const answers = user && user.answers;
 
 	return {
-		answeredQuestionIds: Object.keys(answers)
+		answeredQuestionIds:
+			answers ? Object.keys(answers) :
+			[]
 	};
 }
 export default connect(mapStateToProps)(AnsweredQuestions);
