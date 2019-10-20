@@ -33,15 +33,25 @@ const Footer = styled.div`font-size: 15px;`;
 
 class PollResultCard extends Component {
 	render() {
+		const now = Math.floor(this.props.votes / this.props.totalVotes * 100);
 		return (
 			<Wrapper className="d-flex flex-column">
-				<YourVote>
-					Your <br />Vote
-				</YourVote>
+				{
+					this.props.userVote ? <YourVote>
+						Your <br />Vote
+					</YourVote> :
+					null}
+				<div>{this.props.text}</div>
 
-				<div>Would you rather find $50 yourself?</div>
-				<ProgressBar now={now} label={`${now}%`} style={{ margin: '10px 0 5px 0' }} />
-				<Footer className="align-self-center">2 out of 3 votes</Footer>
+				<div className="d-flex flex-row">
+					<div style={{ alignSelf: 'center', marginRight: '5px', width: '30px', fontSize: '12px' }}>
+						{now}%
+					</div>
+					<ProgressBar now={now} style={{ margin: '10px 0 5px 0', flexGrow: '1' }} />
+				</div>
+
+				<Footer className="align-self-center">{`${this.props.votes} out of ${this.props
+					.totalVotes} votes`}</Footer>
 			</Wrapper>
 		);
 	}
