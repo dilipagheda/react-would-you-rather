@@ -1,6 +1,13 @@
-// import { RECEIVE_TWEETS } from '../actions/tweets'
-import { Users } from '../utils/_DATA';
+import { FETCH_USERS } from '../actions/users';
 
-export default function users(state = Users, action) {
-	return state;
+export default function users(state = {}, action) {
+	switch (action.type) {
+		case FETCH_USERS:
+			return {
+				...state,
+				...action.users
+			};
+		default:
+			return state;
+	}
 }
