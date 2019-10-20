@@ -9,7 +9,7 @@ import LeaderBoardView from './components/leaderboard/LeaderBoardView';
 import PollMain from './components/poll/PollMain';
 import CreateQuestion from './components/question/CreateQuestion';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-
+import NotFound from './components/shared/NotFound';
 function App() {
 	return (
 		<div>
@@ -38,6 +38,7 @@ function App() {
 						<Route path="/add" component={CreateQuestion} />
 						<Route path="/leaderboard" component={LeaderBoardView} />
 						<Route path="/questions/:question_id" component={PollMain} />
+						<Route component={NotFound} />
 					</Switch>
 				</Router>
 			</Container>
