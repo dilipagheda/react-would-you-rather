@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+
 import AnsweredQuestions from './AnsweredQuestions';
 import UnansweredQuestions from './UnAnsweredQuestions';
 
 const ANSWERED_QUESTIONS = 'Answered Questions';
 const UNANSWERED_QUESTIONS = 'Unanswered Questions';
-const TEMP_USERID = 'tylermcginnis';
 
 const HomeViewButton = styled.button`
 	margin-right: 10px;
@@ -51,9 +52,11 @@ class HomeView extends Component {
 					</HomeViewButton>
 				</div>
 				{
-					this.state.currentSelection === ANSWERED_QUESTIONS ? <AnsweredQuestions userId={TEMP_USERID} /> :
+					this.state.currentSelection === ANSWERED_QUESTIONS ? <AnsweredQuestions
+						userId={this.props.authedUser}
+					/> :
 					this.state.currentSelection === UNANSWERED_QUESTIONS ? <UnansweredQuestions
-						userId={TEMP_USERID}
+						userId={this.props.authedUser}
 					/> :
 					null}
 			</Container>
@@ -61,4 +64,9 @@ class HomeView extends Component {
 	}
 }
 
-export default HomeView;
+function mapStateToProps({ authedUser }) {
+	return {
+		authedUser
+	};
+}
+export default connect(mapStateToProps)(HomeView);
