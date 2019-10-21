@@ -9,43 +9,44 @@ import PollMain from './components/poll/PollMain';
 import CreateQuestion from './components/question/CreateQuestion';
 import NotFound from './components/shared/NotFound';
 import Loader from './components/shared/Loader';
-import { handleInitialData } from './actions/shared';
+import { handleData } from './actions/shared';
 
 class App extends Component {
 	componentDidMount() {
-		this.props.dispatch(handleInitialData());
+		console.log('componentDidMount:App.js');
+		this.props.dispatch(handleData());
 	}
 
 	render() {
 		return (
 			<div>
-				<AppMenu />
-				{
-					this.props.loader ? <Container
-						className="d-flex justify-content-center"
-						style={{ height: '100vh' }}
-					>
-						<Loader />
-					</Container> :
-					<Container>
-						<div className="d-flex flex-row-reverse">
-							<span
-								style={{
-									padding: '0 30px',
-									backgroundColor: '#FCCD04',
-									color: '#A64AC9',
-									borderRadius: '0 0 10px 10px'
-								}}
-							>
-								Hello user!
-							</span>
-						</div>
-						{/* <HomeView /> */}
-						{/* <PollResultView /> */}
-						{/* <PollForm /> */}
-						{/* <LeaderBoardView /> */}
-						{/* <CreateQuestion /> */}
-						<Router>
+				<Router>
+					<AppMenu />
+					{
+						this.props.loader ? <Container
+							className="d-flex justify-content-center"
+							style={{ height: '100vh' }}
+						>
+							<Loader />
+						</Container> :
+						<Container>
+							<div className="d-flex flex-row-reverse">
+								<span
+									style={{
+										padding: '0 30px',
+										backgroundColor: '#FCCD04',
+										color: '#A64AC9',
+										borderRadius: '0 0 10px 10px'
+									}}
+								>
+									Hello {this.props.authedUserName}
+								</span>
+							</div>
+							{/* <HomeView /> */}
+							{/* <PollResultView /> */}
+							{/* <PollForm /> */}
+							{/* <LeaderBoardView /> */}
+							{/* <CreateQuestion /> */}
 							<Switch>
 								<Route exact path="/" component={HomeView} />
 								<Route path="/add" component={CreateQuestion} />
@@ -53,15 +54,20 @@ class App extends Component {
 								<Route path="/questions/:question_id" component={PollMain} />
 								<Route component={NotFound} />
 							</Switch>
-						</Router>
-					</Container>}
+						</Container>}
+				</Router>
 			</div>
 		);
 	}
 }
-function mapStateToProps({ authedUser, loader }) {
+function mapStateToProps({ users, authedUser, loader }) {
+	const authedUserName =
+
+			!loader && authedUser ? users[authedUser].name :
+			null;
 	return {
-		loader
+		loader,
+		authedUserName
 	};
 }
 export default connect(mapStateToProps)(App);
