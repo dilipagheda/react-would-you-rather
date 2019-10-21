@@ -43,3 +43,16 @@ a.nav-link {
 .nav-link.active {
 	text-decoration: underline;
 }
+
+.navbar-nav a {
+	color: white;
+	margin: 10px 10px 10px 0px;
+	text-decoration: none;
+	padding: 3px;
+	border-radius: 5px;
+}
+
+.navbar-nav .active {
+	background-color: white;
+	color: black;
+}
