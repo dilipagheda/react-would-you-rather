@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
 
 export const OuterDiv = styled.div`
-	width: 50%;
-	margin: 10px auto;
 	background-color: white;
-	border-radius: 10px;
+	border-radius: 12px;
 	border: 2px solid #fccd04;
+	padding: 0;
+	margin: 20px auto;
 `;
 
 export const HeaderDiv = styled.div`
