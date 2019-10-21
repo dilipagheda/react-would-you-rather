@@ -36,7 +36,8 @@ class Question extends Component {
 											width: '100%',
 											backgroundColor: '#5a5560',
 											color: 'white',
-											border: 'none'
+											border: 'none',
+											borderRadius: '10px'
 										}}
 									>
 										View Poll
