@@ -12,7 +12,9 @@ class PollForm extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 		console.log(event);
-		this.props.dispatch(saveQuestionAnswer(this.props.authedUser, this.props.question_id, 'optionOne'));
+		this.props.dispatch(
+			saveQuestionAnswer(this.props.authedUser, this.props.question_id, this.state.currentSelection)
+		);
 	};
 	handleChange = (event) => {
 		this.setState({
@@ -41,8 +43,8 @@ class PollForm extends Component {
 											type="radio"
 											id="opt1"
 											label={this.props.optionOne.text}
-											value="1"
-											checked={this.state.currentSelection === '1'}
+											value="optionOne"
+											checked={this.state.currentSelection === 'optionOne'}
 											onChange={this.handleChange}
 										/>
 
@@ -51,8 +53,8 @@ class PollForm extends Component {
 											type="radio"
 											label={this.props.optionTwo.text}
 											id="opt2"
-											value="2"
-											checked={this.state.currentSelection === '2'}
+											value="optionTwo"
+											checked={this.state.currentSelection === 'optionTwo'}
 											onChange={this.handleChange}
 										/>
 									</div>
