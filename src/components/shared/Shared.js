@@ -40,3 +40,10 @@ export const TotalScore = styled.div`
 	border-radius: 50%;
 	background-color: #fccd04;
 `;
+
+export function sort(questions, idsToSort) {
+	return Object.values(questions)
+		.sort((a, b) => b.timestamp - a.timestamp)
+		.filter((a) => idsToSort.includes(a.id))
+		.map((a) => a.id);
+}

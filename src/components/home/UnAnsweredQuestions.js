@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QuestionList from './QuestionList';
 import { connect } from 'react-redux';
+import { sort } from '../shared/Shared';
 
 class UnansweredQuestions extends Component {
 	render() {
@@ -14,10 +15,10 @@ function mapStateToProps({ users, questions }, { userId }) {
 	const answeredQuestionIds =
 		answers ? Object.keys(answers) :
 		[];
-	const unansweredQuestionIds =
+	let unansweredQuestionIds =
 		answeredQuestionIds ? Object.keys(questions).filter((id) => !answeredQuestionIds.includes(id)) :
 		[];
-
+	unansweredQuestionIds = sort(questions, unansweredQuestionIds);
 	return {
 		unansweredQuestionIds
 	};

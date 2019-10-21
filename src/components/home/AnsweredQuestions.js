@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QuestionList from './QuestionList';
 import { connect } from 'react-redux';
+import { sort } from '../shared/Shared';
 
 class AnsweredQuestions extends Component {
 	render() {
@@ -16,7 +17,7 @@ function mapStateToProps({ users, questions }, { userId }) {
 
 	return {
 		answeredQuestionIds:
-			answers ? Object.keys(answers) :
+			answers ? sort(questions, Object.keys(answers)) :
 			[]
 	};
 }
