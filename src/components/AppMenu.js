@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 class AppMenu extends Component {
 	state = {
-		currentSelection: 'home'
+		currentSelection: ''
 	};
 	handleSelect = (e) => {
 		this.setState({ currentSelection: e });
@@ -18,8 +18,8 @@ class AppMenu extends Component {
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" style={{ backgroundColor: 'white' }} />
 					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav className="mr-auto" onSelect={this.handleSelect}>
-							{/* <NavLink exact activeClassName="active" to="/">
+						<Nav className="mr-auto" onSelect={this.handleSelect} style={{ width: '100%' }}>
+							<NavLink exact activeClassName="active" to="/">
 								Home
 							</NavLink>
 							<NavLink activeClassName="active" to="/add">
@@ -27,9 +27,11 @@ class AppMenu extends Component {
 							</NavLink>
 							<NavLink activeClassName="active" to="/leaderboard">
 								Leaderboard
-							</NavLink> */}
-
-							<Nav.Link
+							</NavLink>
+							<NavLink to="/logout" style={{ color: 'white', marginLeft: 'auto' }}>
+								Logout
+							</NavLink>
+							{/* <Nav.Link
 								active={this.state.currentSelection === 'home'}
 								eventKey="home"
 								as={NavLink}
@@ -56,12 +58,7 @@ class AppMenu extends Component {
 								style={{ color: 'white' }}
 							>
 								Leaderboard
-							</Nav.Link>
-						</Nav>
-						<Nav>
-							<Nav.Link href="#link" className="justify-content-end" style={{ color: 'white' }}>
-								Logout
-							</Nav.Link>
+							</Nav.Link> */}
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
