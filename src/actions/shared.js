@@ -18,3 +18,14 @@ export function handleData() {
 		});
 	};
 }
+
+export const SET_REDIRECT_HOME = 'SET_REDIRECT_HOME';
+export const RESET_REDIRECT_HOME = 'RESET_REDIRECT_HOME';
+
+export function updateRedirectStatus(flag) {
+	return {
+		type:
+			flag ? SET_REDIRECT_HOME :
+			RESET_REDIRECT_HOME
+	};
+}
