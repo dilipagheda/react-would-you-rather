@@ -3,10 +3,11 @@ import { _saveQuestionAnswer } from '../utils/_DATA';
 // import { handleData } from './shared';
 import { fetchUsers } from '../actions/users';
 // import { fetchQuestions } from '../actions/questions';
-import { _getUsers, _getQuestions } from '../utils/_DATA';
+import { _getUsers, _getQuestions, _saveQuestion } from '../utils/_DATA';
 import { handleData } from './shared';
 
 export const FETCH_QUESTIONS = 'FETCH_QUESTIONS';
+export const ADD_NEW_QUESTION = 'ADD_NEW_QUESTION';
 
 export function fetchQuestions(questions) {
 	return {
@@ -27,6 +28,24 @@ export function saveQuestionAnswer(authedUser, qid, answer) {
 					dispatch(hideLoader());
 				});
 			});
+		});
+	};
+}
+
+export function addNewQuestion(question) {
+	return {
+		type: ADD_NEW_QUESTION,
+		question
+	};
+}
+
+export function saveNewQuestion(question) {
+	return (dispatch) => {
+		dispatch(showLoader());
+
+		return _saveQuestion(question).then((values) => {
+			dispatch(addNewQuestion(values));
+			dispatch(hideLoader());
 		});
 	};
 }
