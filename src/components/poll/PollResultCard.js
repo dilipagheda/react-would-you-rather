@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import styled from 'styled-components';
 
-const now = 60;
-
 const Wrapper = styled.div`
 	border: 1px solid black;
 	padding: 10px;
