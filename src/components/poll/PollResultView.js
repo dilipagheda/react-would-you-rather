@@ -18,6 +18,7 @@ class PollResultView extends Component {
 						<HeaderDiv>{`Asked by ${this.props.author}`}</HeaderDiv>
 						<DetailDiv>
 							<img
+								alt={this.props.author}
 								src={this.props.avatarURL}
 								style={{ borderRadius: '50%', height: '100px', width: '100px', alignSelf: 'center' }}
 							/>

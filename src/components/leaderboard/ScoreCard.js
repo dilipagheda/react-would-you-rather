@@ -10,6 +10,7 @@ class ScoreCard extends Component {
 					<OuterDiv>
 						<DetailDiv>
 							<img
+								alt={this.props.name}
 								src={this.props.avatarURL}
 								style={{ borderRadius: '50%', height: '100px', width: '100px', alignSelf: 'center' }}
 							/>

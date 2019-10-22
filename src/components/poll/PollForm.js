@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Form, Row, Col } from 'react-bootstrap';
+import { Form, Col } from 'react-bootstrap';
 import { OuterDiv, HeaderDiv, DetailDiv, AppButton } from '../shared/Shared';
 import { connect } from 'react-redux';
 import { saveQuestionAnswer } from '../../actions/questions';
-import Loader from '../shared/Loader';
 
 class PollForm extends Component {
 	state = {
@@ -11,7 +10,6 @@ class PollForm extends Component {
 	};
 	handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(event);
 		this.props.dispatch(
 			saveQuestionAnswer(this.props.authedUser, this.props.question_id, this.state.currentSelection)
 		);
@@ -23,13 +21,13 @@ class PollForm extends Component {
 	};
 	render() {
 		const ComponntToRender = (
-			// this.props.loader ? <Loader /> :
 			<DetailDiv>
 				<Col sm={12} md={8} lg={6} style={{ margin: 'auto' }}>
 					<OuterDiv>
 						<HeaderDiv>{this.props.author} asks:</HeaderDiv>
 						<DetailDiv>
 							<img
+								alt={this.props.author}
 								src={this.props.avatarURL}
 								style={{ width: '100px', height: '100px', borderRadius: '50%' }}
 							/>
