@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-
+import { handleData } from '../../actions/shared';
 import AnsweredQuestions from './AnsweredQuestions';
 import UnansweredQuestions from './UnAnsweredQuestions';
 
@@ -25,6 +25,15 @@ const HomeViewButton = styled.button`
 
 class HomeView extends Component {
 	state = { currentSelection: UNANSWERED_QUESTIONS };
+
+	componentDidMount() {
+		if (
+			this.props.authedUser &&
+			(Object.keys(this.props.questions).length === 0 || Object.keys(this.props.users).length === 0)
+		) {
+			this.props.dispatch(handleData());
+		}
+	}
 
 	handleClick = (e) => {
 		console.log(e.target.innerText);
@@ -64,9 +73,11 @@ class HomeView extends Component {
 	}
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users, questions }) {
 	return {
-		authedUser
+		authedUser,
+		users,
+		questions
 	};
 }
 export default connect(mapStateToProps)(HomeView);
