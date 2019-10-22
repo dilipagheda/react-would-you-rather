@@ -1,4 +1,4 @@
-import { FETCH_QUESTIONS, ADD_NEW_QUESTION } from '../actions/questions';
+import { FETCH_QUESTIONS, ADD_NEW_QUESTION, RESET_QUESTIONS } from '../actions/questions';
 
 export default function questions(state = {}, action) {
 	switch (action.type) {
@@ -12,6 +12,8 @@ export default function questions(state = {}, action) {
 				...state,
 				[action.question.id]: action.question
 			};
+		case RESET_QUESTIONS:
+			return {};
 		default:
 			return state;
 	}

@@ -43,7 +43,7 @@ class CreateQuestion extends Component {
 
 	render() {
 		if (this.props.redirectToHome) {
-			return <Redirect to="/" />;
+			return <Redirect to="/home" />;
 		} else {
 			return (
 				<Row>
