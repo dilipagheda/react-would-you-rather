@@ -1,4 +1,4 @@
-import { FETCH_QUESTIONS, ADD_NEW_QUESTION, RESET_QUESTIONS } from '../actions/questions';
+import { FETCH_QUESTIONS, ADD_NEW_QUESTION, RESET_QUESTIONS } from '../actions/types';
 
 export default function questions(state = {}, action) {
 	switch (action.type) {

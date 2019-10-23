@@ -1,4 +1,4 @@
-import { SHOW_LOADER, HIDE_LOADER } from '../actions/loader';
+import { SHOW_LOADER, HIDE_LOADER } from '../actions/types';
 
 export default function loader(state = false, action) {
 	switch (action.type) {

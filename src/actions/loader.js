@@ -1,5 +1,4 @@
-export const SHOW_LOADER = 'SHOW_LOADER';
-export const HIDE_LOADER = 'HIDE_LOADER';
+import { SHOW_LOADER, HIDE_LOADER } from './types';
 
 export function showLoader() {
 	return {

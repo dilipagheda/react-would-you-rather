@@ -2,10 +2,7 @@ import { showLoader, hideLoader } from './loader';
 import { _saveQuestionAnswer } from '../utils/_DATA';
 import { _getUsers, _getQuestions, _saveQuestion } from '../utils/_DATA';
 import { handleData } from './shared';
-
-export const FETCH_QUESTIONS = 'FETCH_QUESTIONS';
-export const ADD_NEW_QUESTION = 'ADD_NEW_QUESTION';
-export const RESET_QUESTIONS = 'RESET_QUESTIONS';
+import { FETCH_QUESTIONS, RESET_QUESTIONS, ADD_NEW_QUESTION } from './types';
 
 export function fetchQuestions(questions) {
 	return {

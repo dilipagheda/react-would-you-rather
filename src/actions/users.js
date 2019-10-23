@@ -1,7 +1,6 @@
 import { _getUsers } from '../utils/_DATA';
 import { showLoader, hideLoader } from '../actions/loader';
-
-export const FETCH_USERS = 'FETCH_USERS';
+import { FETCH_USERS } from './types';
 
 export function fetchUsers(users) {
 	return {

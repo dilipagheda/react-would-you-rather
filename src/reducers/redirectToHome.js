@@ -1,4 +1,4 @@
-import { SET_REDIRECT_HOME, RESET_REDIRECT_HOME } from '../actions/shared';
+import { SET_REDIRECT_HOME, RESET_REDIRECT_HOME } from '../actions/types';
 
 export default function redirectToHome(state = false, action) {
 	switch (action.type) {

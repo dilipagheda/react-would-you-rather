@@ -1,5 +1,4 @@
-import { SET_AUTHED_USER } from '../actions/authedUser';
-import { RESET_AUTHED_USER } from '../actions/authedUser';
+import { SET_AUTHED_USER, RESET_AUTHED_USER } from '../actions/types';
 
 export default function authedUser(state = null, action) {
 	switch (action.type) {

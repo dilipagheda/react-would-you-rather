@@ -2,6 +2,7 @@ import { _getUsers, _getQuestions } from '../utils/_DATA';
 import { fetchUsers } from '../actions/users';
 import { fetchQuestions } from '../actions/questions';
 import { showLoader, hideLoader } from '../actions/loader';
+import { SET_REDIRECT_HOME, RESET_REDIRECT_HOME } from './types';
 
 export function handleData() {
 	return (dispatch) => {
@@ -14,9 +15,6 @@ export function handleData() {
 		});
 	};
 }
-
-export const SET_REDIRECT_HOME = 'SET_REDIRECT_HOME';
-export const RESET_REDIRECT_HOME = 'RESET_REDIRECT_HOME';
 
 export function updateRedirectStatus(flag) {
 	return {
