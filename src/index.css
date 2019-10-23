@@ -52,7 +52,15 @@ a.nav-link {
 	border-radius: 5px;
 }
 
+nav.navbar {
+	background-color: #46344e;
+}
 .navbar-nav .active {
 	background-color: white;
 	color: black;
+}
+
+.error-message {
+	color: red;
+	padding: 2px;
 }

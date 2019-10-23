@@ -11,7 +11,7 @@ class AppMenu extends Component {
 	};
 	render() {
 		return (
-			<Navbar expand="lg" style={{ backgroundColor: '#46344e' }}>
+			<Navbar expand="lg">
 				<Container>
 					<NavLink exact to="/">
 						<Navbar.Brand style={{ color: 'white' }}>Would you rather?</Navbar.Brand>
