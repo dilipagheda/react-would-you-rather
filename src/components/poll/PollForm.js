@@ -6,13 +6,19 @@ import { saveQuestionAnswer } from '../../actions/questions';
 
 class PollForm extends Component {
 	state = {
-		currentSelection: ''
+		currentSelection: '',
+		error: ''
 	};
 	handleSubmit = (event) => {
 		event.preventDefault();
-		this.props.dispatch(
-			saveQuestionAnswer(this.props.authedUser, this.props.question_id, this.state.currentSelection)
-		);
+		if (this.state.currentSelection.length === 0) {
+			this.setState({ error: 'Please select one of the option!' });
+		} else {
+			this.setState({ error: '' });
+			this.props.dispatch(
+				saveQuestionAnswer(this.props.authedUser, this.props.question_id, this.state.currentSelection)
+			);
+		}
 	};
 	handleChange = (event) => {
 		this.setState({
@@ -56,6 +62,7 @@ class PollForm extends Component {
 											onChange={this.handleChange}
 										/>
 									</div>
+									<div className="error-message">{this.state.error}</div>
 									<AppButton type="submit">Submit</AppButton>
 								</Form>
 							</div>
