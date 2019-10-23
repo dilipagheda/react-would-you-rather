@@ -12,7 +12,12 @@ class PrivateRoute extends Component {
 				render={(props) =>
 
 						this.props.authedUser ? <Component {...props} /> :
-						<Redirect to="/" />}
+						<Redirect
+							to={{
+								pathname: '/',
+								state: { from: props.location }
+							}}
+						/>}
 			/>
 		);
 	}

@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { setAuthedUser } from '../actions/authedUser';
 import { Redirect } from 'react-router-dom';
 import { updateRedirectStatus } from '../actions/shared';
+import { handleData } from '../actions/shared';
 
 const UserNameButton = styled.button`
 	margin: 5px;
@@ -28,6 +29,12 @@ class Login extends Component {
 
 	componentWillUnmount() {
 		this.props.dispatch(updateRedirectStatus(false));
+		if (
+			this.props.authedUser &&
+			(Object.keys(this.props.questions).length === 0 || Object.keys(this.props.users).length === 0)
+		) {
+			this.props.dispatch(handleData());
+		}
 	}
 
 	handleClick = (id) => {
@@ -35,11 +42,13 @@ class Login extends Component {
 	};
 
 	render() {
+		const { from } = this.props.location.state || { from: { pathname: '/home' } };
+
 		if (this.props.authedUser) {
 			this.props.dispatch(updateRedirectStatus(true));
 		}
 		if (this.props.redirectToHome) {
-			return <Redirect to="/home" />;
+			return <Redirect to={from} />;
 		} else {
 			return (
 				<Row>
@@ -70,7 +79,7 @@ class Login extends Component {
 	}
 }
 
-function mapStateToProps({ users, redirectToHome, authedUser }) {
-	return { users, redirectToHome, authedUser };
+function mapStateToProps({ users, questions, redirectToHome, authedUser }) {
+	return { users, redirectToHome, authedUser, questions };
 }
 export default connect(mapStateToProps)(Login);
