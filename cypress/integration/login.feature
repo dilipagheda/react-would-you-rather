@@ -1,7 +1,7 @@
 Feature: Login functionality
     I want to test login functionality
 
-    Scenario: Login with a valid user
+    Scenario: Login with a valid user and then logout
         Given I navigate to would you rather web app
         And I wait for data to load
         When I click on user 'Sarah Edo'
@@ -17,4 +17,6 @@ Feature: Login functionality
             | Button Text          | State      |
             | Answered Questions   | unselected |
             | Unanswered Questions | selected   |
-
+        And I see current url route is '/home'
+        When I click on logout button
+        Then I see login page
