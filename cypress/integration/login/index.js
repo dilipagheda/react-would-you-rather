@@ -1,17 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
-const url = 'http://localhost:3000';
-const waitForDataLoad = () => {
-	cy.get('div.spinner-border', { timeout: 10000 }).should('not.exist');
-};
-
-Given('I navigate to would you rather web app', () => {
-	cy.visit(url);
-});
-
-Given('I wait for data to load', waitForDataLoad);
-When('I wait for data to load', waitForDataLoad);
-
 When(`I click on user {string}`, (user) => {
 	cy.get('button').contains(user).click();
 });
@@ -48,4 +36,8 @@ Then(`I see buttons with following texts and state`, (table) => {
 			cy.get('button').contains(name).should('have.css', 'background-color', 'rgb(255, 255, 255)');
 		}
 	});
+});
+
+Then(`I see current url route is {string}`, (route) => {
+	cy.url().should('include', route);
 });
