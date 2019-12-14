@@ -18,6 +18,10 @@ When(`I click on logout button`, () => {
 	cy.get('a').contains('Logout').click();
 });
 
+When(`I click on user {string}`, (user) => {
+	cy.get('button').contains(user).click();
+});
+
 Then(`I see login page`, () => {
 	cy.get('div').contains('Login').should('exist');
 	cy.get('div').contains('Please select a user').should('exist');

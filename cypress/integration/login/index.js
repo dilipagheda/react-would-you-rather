@@ -1,9 +1,5 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
-When(`I click on user {string}`, (user) => {
-	cy.get('button').contains(user).click();
-});
-
 Then(`I see home page with text {string}`, (expectedText) => {
 	cy.get('span').contains(expectedText).should('exist');
 });
