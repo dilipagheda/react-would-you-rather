@@ -13,7 +13,11 @@ In this app, users are able to answer questions, see which questions they havenâ
 - Run `npm start`
 - Project should run. Chrome is the preferred browser for testing.
 
-# Skills gained
+# How to run automated test
+- run `npx cypress open` to open cypress
+- select the test and run it
+
+# Skills Used
 This project was the perfect for practising all of the following skills in the world of React.
 - React
 - Redux
@@ -21,6 +25,26 @@ This project was the perfect for practising all of the following skills in the w
 - Redux Thunk
 - HTML, CSS, JavaScript
 - React Bootstrap
+- Cypress, Cucumber, BDD
+
+# Screenshots
+
+![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/login.png)
+
+![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/home.png)
+
+![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/enterpoll.png)
+
+![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/pollresult.png)
+
+![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/leaderboard.png)
+
+
+# Automated Testing using Cypress
+This project is fully automated tested using Cypress + Cucumber. See below sample test run.
+
+![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/cypresstest.png)
+
 
 # App Requirements & Functionality
 ```Below are the original requirements given by Udacity upon which the project was built and delievered. ```
