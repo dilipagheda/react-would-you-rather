@@ -26,12 +26,21 @@
 		"extends": "react-app"
 	},
 	"browserslist": {
-		"production": [ ">0.2%", "not dead", "not op_mini all" ],
-		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
 	},
 	"devDependencies": {
 		"cypress": "^3.8.0",
-		"cypress-cucumber-preprocessor": "^1.18.0"
+		"cypress-cucumber-preprocessor": "^1.18.0",
+		"redux-devtools-extension": "^2.13.8"
 	},
 	"cypress-cucumber-preprocessor": {
 		"nonGlobalStepDefinitions": true
