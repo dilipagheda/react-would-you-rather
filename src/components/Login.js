@@ -64,7 +64,7 @@ class Login extends Component {
 								<div className="d-flex flex-column" style={{ margin: 'auto' }}>
 									{Object.keys(this.props.users).map((id) => {
 										return (
-											<UserNameButton onClick={() => this.handleClick(id)}>
+											<UserNameButton key={id} onClick={() => this.handleClick(id)}>
 												{this.props.users[id].name}
 											</UserNameButton>
 										);

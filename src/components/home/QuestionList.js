@@ -6,7 +6,7 @@ class QuestionList extends Component {
 		if (ids.length > 0) {
 			return this.props.ids.map((id) => {
 				return (
-					<div>
+					<div key={id}>
 						<Question id={id} />
 					</div>
 				);

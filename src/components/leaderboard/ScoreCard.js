@@ -26,19 +26,27 @@ class ScoreCard extends Component {
 							>
 								<div style={{ fontWeight: 'bold', fontSize: '20px' }}>{this.props.name}</div>
 								<table>
-									<tr>
-										<td>Answered Questions</td>
-										<td>{this.props.totalAnswered}</td>
-									</tr>
-									<tr>
-										<td>Created Questions</td>
-										<td>{this.props.totalQuestions}</td>
-									</tr>
+									<tbody>
+										<tr>
+											<td>Answered Questions</td>
+											<td data-info="answered_questions_score" data-user={this.props.name}>
+												{this.props.totalAnswered}
+											</td>
+										</tr>
+										<tr>
+											<td>Created Questions</td>
+											<td data-info="created_questions_score" data-user={this.props.name}>
+												{this.props.totalQuestions}
+											</td>
+										</tr>
+									</tbody>
 								</table>
 							</div>
 							<div style={{ alignSelf: 'center' }}>
 								<div style={{ fontWeight: 'bold', fontSize: '20px' }}>Score</div>
-								<TotalScore>{this.props.score}</TotalScore>
+								<TotalScore data-info="total_score" data-user={this.props.name}>
+									{this.props.score}
+								</TotalScore>
 							</div>
 						</DetailDiv>
 					</OuterDiv>
