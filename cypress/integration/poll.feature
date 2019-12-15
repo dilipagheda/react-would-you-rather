@@ -21,11 +21,15 @@ Feature: Poll Functionality
             | find $50 yourself | find $50 yourself               |
             | find $50 yourself | have your best friend find $500 |
 
+    @focus
     Scenario: User creates a new question
         Given I navigate to would you rather web app
         And I wait for data to load
         When I click on user 'Sarah Edo'
         And I wait for data to load
+        And I click on leaderboard menu option
+        And I wait for data to load
+        And I save the initial total score and created questions score for user 'Sarah Edo'
         And I click on New question
         Then I see create new question screen
         When I enter questions as below in the order
@@ -36,4 +40,7 @@ Feature: Poll Functionality
         Then I see question in unanswered questions list asked by 'Sarah Edo' and has below options
             | learn python |
             | learn java   |
+        Given I click on leaderboard menu option
+        And I wait for data to load
+        Then I see the total score and created questions score for user 'Sarah Edo' is incremented by one
 

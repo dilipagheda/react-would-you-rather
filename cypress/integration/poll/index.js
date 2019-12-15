@@ -1,4 +1,19 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+let totalScore;
+let createdQuestionsScore;
+
+Given(`I save the initial total score and created questions score for user {string}`, (user) => {
+	cy.get(`[data-info='created_questions_score' ][data-user='${user}']`).then(($element) => {
+		createdQuestionsScore = parseInt($element.text());
+	});
+	cy.get(`[data-info='total_score' ][data-user='${user}']`).then(($element) => {
+		totalScore = parseInt($element.text());
+	});
+});
+
+Given(`I click on leaderboard menu option`, () => {
+	cy.get('a').contains('Leaderboard').click();
+});
 
 When(`I click on unanswered questions tab`, () => {
 	cy.get('button').contains('Unanswered Questions').click();
@@ -52,5 +67,16 @@ Then(`I see question in unanswered questions list asked by {string} and has belo
 		cy.get('div').contains(option).as('optionItem');
 		cy.get('@optionItem').should('exist');
 		cy.get('@optionItem').parent().parent().parent().find('div').contains(user).should('exist');
+	});
+});
+
+Then(`I see the total score and created questions score for user {string} is incremented by one`, (user) => {
+	cy.get(`[data-info='created_questions_score' ][data-user='${user}']`).then(($element) => {
+		let expectedCreatedScore = parseInt($element.text());
+		expect(expectedCreatedScore).to.be.equal(createdQuestionsScore + 1);
+	});
+	cy.get(`[data-info='total_score' ][data-user='${user}']`).then(($element) => {
+		let expectedtotalScore = parseInt($element.text());
+		expect(expectedtotalScore).to.be.equal(totalScore + 1);
 	});
 });
