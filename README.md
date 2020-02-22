@@ -29,21 +29,21 @@ This project was the perfect for practising all of the following skills in the w
 
 # Screenshots
 
-![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/login.png)
+<img src="https://github.com/dilipagheda/react-would-you-rather/blob/master/screenshots/login.png"/> 
 
-![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/home.png)
+<img src="https://github.com/dilipagheda/react-would-you-rather/blob/master/screenshots/home.png"/> 
 
-![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/enterpoll.png)
+<img src="https://github.com/dilipagheda/react-would-you-rather/blob/master/screenshots/enterpoll.png"/> 
 
-![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/pollresult.png)
+<img src="https://github.com/dilipagheda/rreact-would-you-rather/blob/master/screenshots/pollresult.png"/> 
 
-![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/leaderboard.png)
+<img src="https://github.com/dilipagheda/react-would-you-rather/blob/master/screenshots/leaderboard.png"/> 
 
 
 # Automated Testing using Cypress
 This project is fully automated tested using Cypress + Cucumber. See below sample test run.
 
-![Login](https://github.com/dilipagheda/reactnd-project-would-you-rather/blob/master/screenshots/cypresstest.png)
+<img src="https://github.com/dilipagheda/react-would-you-rather/blob/master/screenshots/cypresstest.png"/>
 
 
 # App Requirements & Functionality
